@@ -48,9 +48,16 @@ def gonder_email(mail, name):
         6. In the Application option, select Other.
         7. Type "Program Name" in the Name field. Click Generate.
         8. Enter the generated password in the code instead of "password".
-        Remember, your account must have two-step verification turned on. Otherwise you won't be able to perform this step.
         '''
-
+        # Remember, your account must have two-step verification turned on. Otherwise you won't be able to perform this step.
+        '''
+        if your email provider is Gmail:
+        SMTP server address: smtp.gmail.com
+        SMTP port 587
+        Username: your email address
+        Password: The custom application password you created for the SMTP server, not the password you use in the Gmail app
+        '''
+        
         server = smtplib.SMTP("smtp.gmail.com", 587)
         server.starttls()
         server.login("sender@gmail.com", "password")
