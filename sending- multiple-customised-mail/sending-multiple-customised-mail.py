@@ -1,5 +1,3 @@
-# How can we get the e-mails of the participants from the Excel file and send them special pdf files via e-mail? This way:
-
 import pandas as pd
 
 # If we are going to create a pdf ourselves, we must add this library
@@ -19,7 +17,7 @@ data = pd.read_excel("receivers.xlsx")
 mails= data["mail"]
 names = data["name surname"]
 
-def gonder_email(mail, name):
+def send_email(mail, name):
     msg = MIMEMultipart()
 
     # Enter the sender's email address and password
@@ -68,4 +66,4 @@ def gonder_email(mail, name):
         print(f"Error: no PDF file found for {name}.")
 
 for mail, name in zip(mails, names):
-    gonder_email(mail, name)
+    send_email(mail, name)
